@@ -34,8 +34,8 @@ export default async function handler(req, res) {
     }
 
     // Подсчет решенных задач
-    const solved = data.matchedUser.submitStats.acSubmissionNum.reduce((sum, item) => sum + item.count, 0);
-    const total = data.allQuestionsCount.reduce((sum, item) => sum + item.count, 0);
+    const solved = data.matchedUser.submitStats.acSubmissionNum.find(q => q.difficulty === 'All').count;
+    const total = data.allQuestionsCount.find(q => q.difficulty === 'All').count;
 
     // Расчет процентов для прогресс-баров (с округлением до целых)
     const easyTotal = data.allQuestionsCount.find(q => q.difficulty === 'Easy').count;
