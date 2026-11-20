@@ -85,7 +85,9 @@ export default async function handler(req, res) {
                 border:${borderStyle}; border-radius:8px;
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
 
-            <rect x="0" y="0" width="380" height="160" rx="8" ry="8" fill="${colors.bg}" stroke="..." stroke-width="..." />
+            <g>
+                <rect x="0" y="0" width="380" height="160" rx="8" ry="8" fill="${colors.bg}" stroke="..." stroke-width="..." />
+            </g>
 
             <!-- Круговая диаграмма -->
             <g transform="translate(135, 90)">
