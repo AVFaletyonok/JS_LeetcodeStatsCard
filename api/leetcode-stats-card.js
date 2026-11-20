@@ -84,7 +84,7 @@ export default async function handler(req, res) {
 
                 // medium stroke
                 <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.mediumRing}" stroke-width="6"
-                    stroke-dasharray="${mediumTotalLength} ${ringLength - mediumTotalLength}" stroke-dashoffset="0" transform="rotate(0)" stroke-linecap="round"/>
+                    stroke-dasharray="${mediumTotalLength} ${ringLength - mediumTotalLength}" stroke-dashoffset="0" transform="rotate(${mediumAngleOffset})" stroke-linecap="round"/>
 
                 <!-- Текст в центре -->
                 <text x="-20" y="0" fill="${colors.text}" font-size="28" font-weight="bold" text-anchor="middle">${solved}</text>
