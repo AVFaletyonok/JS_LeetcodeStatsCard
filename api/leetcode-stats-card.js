@@ -72,9 +72,9 @@ export default async function handler(req, res) {
             <!-- Круговая диаграмма -->
             <g transform="translate(100, 80)">
                 <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.easyRing}" stroke-width="8"
-                    stroke-dasharray="${easyTotalLength} ${ringLength - easyTotalLength}" stroke-dashoffset="0" transform="rotate(-45)"/>
+                    stroke-dasharray="${easyTotalLength} ${ringLength - easyTotalLength}" stroke-dashoffset="0" transform="rotate(135)"/>
                 <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.easy}" stroke-width="8"
-                    stroke-dasharray="${easeLength} ${ringLength - easeLength}" stroke-dashoffset="0" transform="rotate(-45)" />
+                    stroke-dasharray="${easeLength} ${ringLength - easeLength}" stroke-dashoffset="0" transform="rotate(135)" />
 
                 <!-- Текст в центре -->
                 <text x="0" y="10" fill="${colors.text}" font-size="28" font-weight="bold" text-anchor="middle">${solved}</text>
