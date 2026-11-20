@@ -111,22 +111,22 @@ export default async function handler(req, res) {
             <!-- Блок Easy -->
             <g transform="translate(275, 15)">
                 <rect x="0" y="-5" width="100" height="40" rx="8" ry="8" fill="${colors.blockColor}" stroke="..." stroke-width="..." />
-                <text x="50" y="10" fill="${colors.easy}" font-size="12" text-anchor="middle">Easy</text>
-                <text x="50" y="30" fill="${colors.text}" font-size="12" text-anchor="middle">${easySolved}/${easyTotal}</text>
+                <text x="50" y="10" fill="${colors.easy}" font-size="13" text-anchor="middle">Easy</text>
+                <text x="50" y="25" fill="${colors.text}" font-size="13" text-anchor="middle">${easySolved}/${easyTotal}</text>
             </g>
 
             <!-- Блок Medium -->
             <g transform="translate(275, 65)">
                 <rect x="0" y="-5" width="100" height="40" rx="8" ry="8" fill="${colors.blockColor}" stroke="..." stroke-width="..." />
                 <text x="50" y="10" fill="${colors.medium}" font-size="12" text-anchor="middle">Med.</text>
-                <text x="50" y="30" fill="${colors.text}" font-size="12" text-anchor="middle">${mediumSolved}/${mediumTotal}</text>
+                <text x="50" y="25" fill="${colors.text}" font-size="12" text-anchor="middle">${mediumSolved}/${mediumTotal}</text>
             </g>
 
             <!-- Блок Hard -->
             <g transform="translate(275, 115)">
                 <rect x="0" y="-5" width="100" height="40" rx="8" ry="8" fill="${colors.blockColor}" stroke="..." stroke-width="..." />
                 <text x="50" y="10" fill="${colors.hard}" font-size="12" text-anchor="middle">Hard</text>
-                <text x="50" y="30" fill="${colors.text}" font-size="12" text-anchor="middle">${hardSolved}/${hardTotal}</text>
+                <text x="50" y="28" fill="${colors.text}" font-size="12" text-anchor="middle">${hardSolved}/${hardTotal}</text>
             </g>
         </svg>`.replace(/\s{2,}/g, ' ').trim();
 
