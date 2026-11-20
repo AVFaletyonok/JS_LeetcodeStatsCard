@@ -50,11 +50,11 @@ export default async function handler(req, res) {
     const mediumPercent = Math.round((mediumSolved / mediumTotal) * 100);
     const hardPercent = Math.round((hardSolved / hardTotal) * 100);
 
-    const koefLength = 2 * 3.14159 * 28 / 40;
+    const koefLength = 2 * 3.14159 * 27 / 40;
     const r = 60;
     const ringLength = 2 * 3.14159 * r;
     const ringAngleOffset = 135;
-    const deltaOffset = 2 * 3.14159 * r * 1 / 40;
+    const deltaOffset = 2 * 3.14159 * r * 1.5 / 40;
 
     const easyTotalLength = koefLength * r * easyTotal / total;
     const easyLength = koefLength * r * easySolved / total;
@@ -100,8 +100,8 @@ export default async function handler(req, res) {
 
                 <!-- Текст в центре -->
                 <text x="-20" y="0" fill="${colors.text}" font-size="28" font-weight="bold" text-anchor="middle">${solved}</text>
-                <text x="30" y="0" fill="${colors.text}" font-size="14" text-anchor="middle">/ ${total}</text>
-                <text x="-10" y="20" fill="${colors.easy}" font-size="32" font-weight="bold" text-anchor="middle">✓</text>
+                <text x="28" y="0" fill="${colors.text}" font-size="14" text-anchor="middle">/ ${total}</text>
+                <text x="-15" y="20" fill="${colors.easy}" font-size="12" font-weight="bold" text-anchor="middle">✓</text>
                 <text x="0" y="20" fill="${colors.easy}" font-size="12" text-anchor="middle">Solved</text>
             </g>
 
