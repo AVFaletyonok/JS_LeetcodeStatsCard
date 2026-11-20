@@ -80,7 +80,9 @@ export default async function handler(req, res) {
 
         // SVG with circle diagram
         const svg = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="400" height="160" style="background:${colors.bg}; border:${borderStyle}; border-radius:8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+        <svg xmlns="http://www.w3.org/2000/svg" width="400" height="165"
+                style="background:${colors.bg}; border:${borderStyle}; border-radius:8px; overflow: hidden;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
             <!-- Круговая диаграмма -->
             <g transform="translate(100, 80)">
                 // easy stroke
@@ -120,7 +122,7 @@ export default async function handler(req, res) {
 
             <!-- Блок Hard -->
             <g transform="translate(220, 100)">
-                <rect x="-30" y="-10" width="100" height="50" rx="5" ry="5" fill="..." stroke="..." stroke-width="..." />
+                <rect x="-25" y="-5" width="100" height="40" rx="8" ry="8" fill="${colors.blockColor}" stroke="..." stroke-width="..." />
                 <text x="0" y="10" fill="${colors.hard}" font-size="14" text-anchor="middle">Hard</text>
                 <text x="0" y="30" fill="${colors.text}" font-size="14" text-anchor="middle">${hardSolved}/${hardTotal}</text>
             </g>
