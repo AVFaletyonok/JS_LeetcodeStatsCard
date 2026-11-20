@@ -69,7 +69,8 @@ export default async function handler(req, res) {
 
     // Colors based on leetcode
     const colors = theme === 'dark'
-        ? { bg: 'rgb(40, 40, 40)', text: 'rgb(255, 255, 255)', green: 'rgb(2, 151, 39)',
+        ? { bg: 'rgb(40, 40, 40)', blockColor: 'rgb(53, 53, 53)',
+                text: 'rgb(255, 255, 255)', green: 'rgb(2, 151, 39)',
                 easy: 'rgb(28, 186, 186)', easyRing: 'rgb(38, 69, 69)',
                 medium: 'rgb(255, 183, 0)', mediumRing: 'rgb(83, 69, 32)',
                 hard: 'rgb(246, 55, 55)', hardRing: 'rgb(81, 43, 43)' }
@@ -101,26 +102,27 @@ export default async function handler(req, res) {
                 <!-- Текст в центре -->
                 <text x="-20" y="0" fill="${colors.text}" font-size="28" font-weight="bold" text-anchor="middle">${solved}</text>
                 <text x="28" y="0" fill="${colors.text}" font-size="14" text-anchor="middle">/ ${total}</text>
-                <text x="-20" y="20" fill="${colors.easy}" font-size="14" font-weight="bold" text-anchor="middle">✓</text>
-                <text x="10" y="20" fill="${colors.easy}" font-size="12" text-anchor="middle">Solved</text>
+                <text x="-20" y="20" fill="${colors.green}" font-size="14" font-weight="bold" text-anchor="middle">✓</text>
+                <text x="5" y="20" fill="${colors.easy}" font-size="12" text-anchor="middle">Solved</text>
             </g>
 
             <!-- Блок Easy -->
             <g transform="translate(220, 20)">
                 <text x="0" y="10" fill="${colors.easy}" font-size="14" text-anchor="middle">Easy</text>
-                <text x="0" y="25" fill="${colors.text}" font-size="14" text-anchor="middle">${easySolved}/${easyTotal}</text>
+                <text x="0" y="30" fill="${colors.text}" font-size="14" text-anchor="middle">${easySolved}/${easyTotal}</text>
             </g>
 
             <!-- Блок Medium -->
-            <g transform="translate(220, 50)">
+            <g transform="translate(220, 60)">
                 <text x="0" y="10" fill="${colors.medium}" font-size="14" text-anchor="middle">Med.</text>
-                <text x="0" y="25" fill="${colors.text}" font-size="14" text-anchor="middle">${mediumSolved}/${mediumTotal}</text>
+                <text x="0" y="30" fill="${colors.text}" font-size="14" text-anchor="middle">${mediumSolved}/${mediumTotal}</text>
             </g>
 
             <!-- Блок Hard -->
-            <g transform="translate(220, 80)">
+            <g transform="translate(220, 100)">
+                <rect x="-30" y="-10" width="100" height="50" rx="5" ry="5" fill="..." stroke="..." stroke-width="..." />
                 <text x="0" y="10" fill="${colors.hard}" font-size="14" text-anchor="middle">Hard</text>
-                <text x="0" y="25" fill="${colors.text}" font-size="14" text-anchor="middle">${hardSolved}/${hardTotal}</text>
+                <text x="0" y="30" fill="${colors.text}" font-size="14" text-anchor="middle">${hardSolved}/${hardTotal}</text>
             </g>
         </svg>`.replace(/\s{2,}/g, ' ').trim();
 
