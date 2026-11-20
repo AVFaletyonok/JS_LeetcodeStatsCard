@@ -52,7 +52,7 @@ export default async function handler(req, res) {
 
     // Colors based on leetcode
     const colors = theme === 'dark'
-        ? { bg: '#1e293b', text: '#f1f5f9', easy: '#4ade80', medium: '#fbbf24', hard: '#ef4444', ring: '#374151' }
+        ? { bg: '#1e293b', text: '#f1f5f9', easy: 'rgb(28, 186, 186)' '#4ade80', medium: '#fbbf24', hard: '#ef4444', ring: '#374151' }
         : { bg: '#f8fafc', text: '#1e293b', easy: '#22c55e', medium: '#eab308', hard: '#dc2626', ring: '#e5e7eb' };
 
         const borderStyle = hide_border === 'true' ? 'none' : '1px solid #e2e8f0';
