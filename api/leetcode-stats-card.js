@@ -82,12 +82,10 @@ export default async function handler(req, res) {
         // SVG with circle diagram
         const svg = `
         <svg xmlns="http://www.w3.org/2000/svg" width="380" height="160"
-                border:${borderStyle}; border-radius:8px;
+                style="border:${borderStyle}; border-radius:8px;
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
 
-            <g>
-                <rect x="0" y="0" width="380" height="160" rx="8" ry="8" fill="${colors.bg}" stroke="..." stroke-width="..." />
-            </g>
+            <rect x="0" y="0" width="380" height="160" rx="8" ry="8" fill="${colors.bg}" stroke="..." stroke-width="..." />
 
             <!-- Круговая диаграмма -->
             <g transform="translate(135, 90)">
