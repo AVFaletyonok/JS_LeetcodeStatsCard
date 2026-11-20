@@ -84,7 +84,7 @@ export default async function handler(req, res) {
                 style="background:${colors.bg}; border:${borderStyle}; border-radius:8px;
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
             <!-- Круговая диаграмма -->
-            <g transform="translate(140, 90)">
+            <g transform="translate(135, 90)">
                 // easy stroke
                 <circle r="${r}" cx="0" cy="0" fill="none" stroke="${colors.easyRing}" stroke-width="6"
                     stroke-dasharray="${easyTotalLength} ${ringLength - easyTotalLength}" stroke-dashoffset="0" transform="rotate(135)" stroke-linecap="round"/>
@@ -109,21 +109,21 @@ export default async function handler(req, res) {
             </g>
 
             <!-- Блок Easy -->
-            <g transform="translate(275, 15)">
+            <g transform="translate(265, 15)">
                 <rect x="0" y="-5" width="100" height="40" rx="8" ry="8" fill="${colors.blockColor}" stroke="..." stroke-width="..." />
                 <text x="50" y="10" fill="${colors.easy}" font-size="13" text-anchor="middle">Easy</text>
                 <text x="50" y="30" fill="${colors.text}" font-size="13" text-anchor="middle">${easySolved}/${easyTotal}</text>
             </g>
 
             <!-- Блок Medium -->
-            <g transform="translate(275, 65)">
+            <g transform="translate(265, 65)">
                 <rect x="0" y="-5" width="100" height="40" rx="8" ry="8" fill="${colors.blockColor}" stroke="..." stroke-width="..." />
                 <text x="50" y="10" fill="${colors.medium}" font-size="13" text-anchor="middle">Med.</text>
                 <text x="50" y="30" fill="${colors.text}" font-size="13" text-anchor="middle">${mediumSolved}/${mediumTotal}</text>
             </g>
 
             <!-- Блок Hard -->
-            <g transform="translate(275, 115)">
+            <g transform="translate(265, 115)">
                 <rect x="0" y="-5" width="100" height="40" rx="8" ry="8" fill="${colors.blockColor}" stroke="..." stroke-width="..." />
                 <text x="50" y="10" fill="${colors.hard}" font-size="13" text-anchor="middle">Hard</text>
                 <text x="50" y="30" fill="${colors.text}" font-size="13" text-anchor="middle">${hardSolved}/${hardTotal}</text>
