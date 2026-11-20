@@ -55,12 +55,12 @@ export default async function handler(req, res) {
     const ringLength = 2 * 3.14159 * r;
     const ringAngleOffset = Math.round(135);
 
-    const easyTotalLength = koefLength * r * easyTotal / total - 3;
-    const easyLength = koefLength * r * easySolved / total - 3;
+    const easyTotalLength = koefLength * r * easyTotal / total - 10;
+    const easyLength = koefLength * r * easySolved / total - 10;
 
-    const mediumAngleOffset = ringAngleOffset + Math.round((easyTotalLength + 3) * 360 / ringLength);
-    const mediumTotalLength = koefLength * r * mediumTotal / total - 3;
-    const mediumLength = koefLength * r * mediumSolved / total - 3;
+    const mediumAngleOffset = ringAngleOffset + Math.round((easyTotalLength + 15) * 360 / ringLength);
+    const mediumTotalLength = koefLength * r * mediumTotal / total - 10;
+    const mediumLength = koefLength * r * mediumSolved / total - 10;
 
     // Colors based on leetcode
     const colors = theme === 'dark'
