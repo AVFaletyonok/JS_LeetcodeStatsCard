@@ -101,26 +101,26 @@ export default async function handler(req, res) {
                 <!-- Текст в центре -->
                 <text x="-20" y="0" fill="${colors.text}" font-size="28" font-weight="bold" text-anchor="middle">${solved}</text>
                 <text x="28" y="0" fill="${colors.text}" font-size="14" text-anchor="middle">/ ${total}</text>
-                <text x="-20" y="20" fill="${colors.easy}" font-size="14" font-weight="bold" text-anchor="middle">✓</text>
+                <text x="-30" y="20" fill="${colors.easy}" font-size="14" font-weight="bold" text-anchor="middle">✓</text>
                 <text x="0" y="20" fill="${colors.easy}" font-size="12" text-anchor="middle">Solved</text>
             </g>
 
             <!-- Блок Easy -->
             <g transform="translate(220, 20)">
-                <text x="0" y="10" fill="${colors.easy}" font-size="14" text-anchor="middle">${easySolved}</text>
-                <text x="0" y="20" fill="${colors.easy}" font-size="12" text-anchor="middle">Easy</text>
+                <text x="0" y="10" fill="${colors.easy}" font-size="12" text-anchor="middle">Easy</text>
+                <text x="0" y="10" fill="${colors.text}" font-size="12" text-anchor="middle">${easySolved}/${easyTotal}</text>
             </g>
 
             <!-- Блок Medium -->
             <g transform="translate(220, 50)">
-                <text x="0" y="10" fill="${colors.medium}" font-size="14" text-anchor="middle">${mediumSolved}</text>
-                <text x="0" y="20" fill="${colors.medium}" font-size="12" text-anchor="middle">Med.</text>
+                <text x="0" y="10" fill="${colors.medium}" font-size="12" text-anchor="middle">Med.</text>
+                <text x="0" y="20" fill="${colors.text}" font-size="12" text-anchor="middle">${mediumSolved}/${mediumTotal}</text>
             </g>
 
             <!-- Блок Hard -->
             <g transform="translate(220, 80)">
-                <text x="0" y="10" fill="${colors.hard}" font-size="14" text-anchor="middle">${hardSolved}</text>
-                <text x="0" y="20" fill="${colors.hard}" font-size="12" text-anchor="middle">Hard</text>
+                <text x="0" y="10" fill="${colors.hard}" font-size="12" text-anchor="middle">Hard</text>
+                <text x="0" y="20" fill="${colors.text}" font-size="12" text-anchor="middle">${hardSolved}/${hardTotal}</text>
             </g>
         </svg>`.replace(/\s{2,}/g, ' ').trim();
 
