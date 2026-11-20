@@ -104,29 +104,29 @@ export default async function handler(req, res) {
                 <!-- Текст в центре -->
                 <text x="-20" y="0" fill="${colors.text}" font-size="28" font-weight="bold" text-anchor="middle">${solved}</text>
                 <text x="28" y="0" fill="${colors.text}" font-size="14" text-anchor="middle">/ ${total}</text>
-                <text x="-20" y="20" fill="${colors.green}" font-size="14" font-weight="bold" text-anchor="middle">✓</text>
-                <text x="5" y="20" fill="${colors.text}" font-size="12" text-anchor="middle">Solved</text>
+                <text x="-18" y="20" fill="${colors.green}" font-size="14" font-weight="bold" text-anchor="middle">✓</text>
+                <text x="7" y="20" fill="${colors.text}" font-size="12" text-anchor="middle">Solved</text>
             </g>
 
             <!-- Блок Easy -->
-            <g transform="translate(300, 15)">
+            <g transform="translate(275, 15)">
                 <rect x="0" y="-5" width="100" height="40" rx="8" ry="8" fill="${colors.blockColor}" stroke="..." stroke-width="..." />
                 <text x="50" y="10" fill="${colors.easy}" font-size="12" text-anchor="middle">Easy</text>
-                <text x="0" y="30" fill="${colors.text}" font-size="12" text-anchor="middle">${easySolved}/${easyTotal}</text>
+                <text x="50" y="30" fill="${colors.text}" font-size="12" text-anchor="middle">${easySolved}/${easyTotal}</text>
             </g>
 
             <!-- Блок Medium -->
-            <g transform="translate(300, 65)">
+            <g transform="translate(275, 65)">
                 <rect x="0" y="-5" width="100" height="40" rx="8" ry="8" fill="${colors.blockColor}" stroke="..." stroke-width="..." />
                 <text x="50" y="10" fill="${colors.medium}" font-size="14" text-anchor="middle">Med.</text>
-                <text x="0" y="30" fill="${colors.text}" font-size="14" text-anchor="middle">${mediumSolved}/${mediumTotal}</text>
+                <text x="50" y="30" fill="${colors.text}" font-size="14" text-anchor="middle">${mediumSolved}/${mediumTotal}</text>
             </g>
 
             <!-- Блок Hard -->
-            <g transform="translate(300, 115)">
+            <g transform="translate(275, 115)">
                 <rect x="0" y="-5" width="100" height="40" rx="8" ry="8" fill="${colors.blockColor}" stroke="..." stroke-width="..." />
                 <text x="50" y="10" fill="${colors.hard}" font-size="14" text-anchor="middle">Hard</text>
-                <text x="0" y="30" fill="${colors.text}" font-size="14" text-anchor="middle">${hardSolved}/${hardTotal}</text>
+                <text x="50" y="30" fill="${colors.text}" font-size="14" text-anchor="middle">${hardSolved}/${hardTotal}</text>
             </g>
         </svg>`.replace(/\s{2,}/g, ' ').trim();
 
