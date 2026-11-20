@@ -71,7 +71,7 @@ export default async function handler(req, res) {
 
         const borderStyle = hide_border === 'true' ? 'none' : '1px solid #e2e8f0';
 
-        // SVG с круговой диаграммой
+        // SVG with circle diagram
         const svg = `
         <svg xmlns="http://www.w3.org/2000/svg" width="400" height="160" style="background:${colors.bg}; border:${borderStyle}; border-radius:8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
             <!-- Круговая диаграмма -->
@@ -88,13 +88,13 @@ export default async function handler(req, res) {
                 <text x="0" y="20" fill="${colors.easy}" font-size="12" text-anchor="middle">Solved</text>
             </g>
 
-            <g transform="translate(100, 80)">
-                // medium stroke
-                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.mediumRing}" stroke-width="6"
-                    stroke-dasharray="${mediumTotalLength} ${ringLength - mediumTotalLength}" stroke-dashoffset="0" transform="rotate(0)" stroke-linecap="round"/>
+//            <g transform="translate(100, 80)">
+//                // medium stroke
+//                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.mediumRing}" stroke-width="6"
+//                    stroke-dasharray="${mediumTotalLength} ${ringLength - mediumTotalLength}" stroke-dashoffset="0" transform="rotate(0)" stroke-linecap="round"/>
 //                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.medium}" stroke-width="6"
 //                    stroke-dasharray="${mediumLength} ${ringLength - mediumLength}" stroke-dashoffset="0" transform="rotate(0)" stroke-linecap="round"/>
-            </g>
+//            </g>
 
             <!-- Блок Easy -->
             <g transform="translate(220, 20)">
