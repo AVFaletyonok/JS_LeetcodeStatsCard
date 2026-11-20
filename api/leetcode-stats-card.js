@@ -50,17 +50,18 @@ export default async function handler(req, res) {
     const mediumPercent = Math.round((mediumSolved / mediumTotal) * 100);
     const hardPercent = Math.round((hardSolved / hardTotal) * 100);
 
-    const koefLength = 2 * 3.14159 * 3 / 4;
+    const koefLength = 2 * 3.14159 * 26 / 40;
     const r = 60;
     const ringLength = 2 * 3.14159 * r;
-    const ringAngleOffset = Math.round(135);
+    const ringAngleOffset = 135;
+    const deltaOffset = 2 * 3.14159 * 2 / 40;
 
-    const easyTotalLength = koefLength * r * easyTotal / total - 10;
-    const easyLength = koefLength * r * easySolved / total - 10;
+    const easyTotalLength = koefLength * r * easyTotal / total;
+    const easyLength = koefLength * r * easySolved / total;
 
-    const mediumAngleOffset = ringAngleOffset + Math.round((easyTotalLength + 15) * 360 / ringLength);
-    const mediumTotalLength = koefLength * r * mediumTotal / total - 10;
-    const mediumLength = koefLength * r * mediumSolved / total - 10;
+    const mediumAngleOffset = Math.round(ringAngleOffset + (easyTotalLength + deltaOffset) * 360 / ringLength);
+    const mediumTotalLength = koefLength * r * mediumTotal / total;
+    const mediumLength = koefLength * r * mediumSolved / total;
 
     // Colors based on leetcode
     const colors = theme === 'dark'
