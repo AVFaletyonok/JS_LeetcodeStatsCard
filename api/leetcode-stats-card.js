@@ -71,10 +71,10 @@ export default async function handler(req, res) {
         <svg xmlns="http://www.w3.org/2000/svg" width="400" height="160" style="background:${colors.bg}; border:${borderStyle}; border-radius:8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
             <!-- Круговая диаграмма -->
             <g transform="translate(100, 80)">
-                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.easyRing}" stroke-width="8"
-                    stroke-dasharray="${easyTotalLength} ${ringLength - easyTotalLength}" stroke-dashoffset="0" transform="rotate(135)"/>
-                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.easy}" stroke-width="8"
-                    stroke-dasharray="${easeLength} ${ringLength - easeLength}" stroke-dashoffset="0" transform="rotate(135)" />
+                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.easyRing}" stroke-width="6"
+                    stroke-dasharray="${easyTotalLength} ${ringLength - easyTotalLength}" stroke-dashoffset="0" transform="rotate(135)" stroke-linecap="round"/>
+                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.easy}" stroke-width="6"
+                    stroke-dasharray="${easeLength} ${ringLength - easeLength}" stroke-dashoffset="0" transform="rotate(135)" stroke-linecap="round"/>
 
                 <!-- Текст в центре -->
                 <text x="0" y="10" fill="${colors.text}" font-size="28" font-weight="bold" text-anchor="middle">${solved}</text>
@@ -83,30 +83,21 @@ export default async function handler(req, res) {
             </g>
 
             <!-- Блок Easy -->
-            <g transform="translate(220, 50)">
-                <circle r="25" cx="0" cy="0" fill="none" stroke="${colors.ring}" stroke-width="4" />
-                <circle r="25" cx="0" cy="0" fill="none" stroke="${colors.easy}" stroke-width="4"
-                    stroke-dasharray="${easyPercent * 1.57} 100.53" stroke-dashoffset="0" transform="rotate(-90)" />
+            <g transform="translate(220, 20)">
                 <text x="0" y="10" fill="${colors.easy}" font-size="14" text-anchor="middle">${easySolved}</text>
-                <text x="0" y="30" fill="${colors.easy}" font-size="12" text-anchor="middle">Easy</text>
+                <text x="0" y="20" fill="${colors.easy}" font-size="12" text-anchor="middle">Easy</text>
             </g>
 
             <!-- Блок Medium -->
-            <g transform="translate(220, 110)">
-                <circle r="25" cx="0" cy="0" fill="none" stroke="${colors.ring}" stroke-width="4" />
-                <circle r="25" cx="0" cy="0" fill="none" stroke="${colors.medium}" stroke-width="4"
-                    stroke-dasharray="${mediumPercent * 1.57} 100.53" stroke-dashoffset="0" transform="rotate(-90)" />
+            <g transform="translate(220, 50)">
                 <text x="0" y="10" fill="${colors.medium}" font-size="14" text-anchor="middle">${mediumSolved}</text>
-                <text x="0" y="30" fill="${colors.medium}" font-size="12" text-anchor="middle">Med.</text>
+                <text x="0" y="20" fill="${colors.medium}" font-size="12" text-anchor="middle">Med.</text>
             </g>
 
             <!-- Блок Hard -->
-            <g transform="translate(220, 170)">
-                <circle r="25" cx="0" cy="0" fill="none" stroke="${colors.ring}" stroke-width="4" />
-                <circle r="25" cx="0" cy="0" fill="none" stroke="${colors.hard}" stroke-width="4"
-                    stroke-dasharray="${hardPercent * 1.57} 100.53" stroke-dashoffset="0" transform="rotate(-90)" />
+            <g transform="translate(220, 80)">
                 <text x="0" y="10" fill="${colors.hard}" font-size="14" text-anchor="middle">${hardSolved}</text>
-                <text x="0" y="30" fill="${colors.hard}" font-size="12" text-anchor="middle">Hard</text>
+                <text x="0" y="20" fill="${colors.hard}" font-size="12" text-anchor="middle">Hard</text>
             </g>
         </svg>`.replace(/\s{2,}/g, ' ').trim();
 
