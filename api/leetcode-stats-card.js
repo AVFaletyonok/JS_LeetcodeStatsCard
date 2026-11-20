@@ -130,12 +130,9 @@ export default async function handler(req, res) {
             </g>
         </svg>`.replace(/\s{2,}/g, ' ').trim();
 
-        const container = `
-        <div style="width: 380px; height: 160px; border-radius: 8px; overflow: hidden; background: ${colors.bg}; border: ${borderStyle};"> ${svg} </div>`;
-
         res.setHeader('Content-Type', 'image/svg+xml');
         res.setHeader('Cache-Control', 'public, max-age=0, s-maxage=86400, stale-while-revalidate=3600');
-        res.send(container);
+        res.send(svg);
 
   } catch (error) {
     res.status(500).send('Error fetching data');
