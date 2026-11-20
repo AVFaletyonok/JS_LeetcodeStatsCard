@@ -80,7 +80,7 @@ export default async function handler(req, res) {
 
         // SVG with circle diagram
         const svg = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="400" height="160"
+        <svg xmlns="http://www.w3.org/2000/svg" width="380" height="160"
                 style="background:${colors.bg}; border:${borderStyle}; border-radius:8px;
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
             <!-- Круговая диаграмма -->
@@ -131,7 +131,7 @@ export default async function handler(req, res) {
         </svg>`.replace(/\s{2,}/g, ' ').trim();
 
         const container = `
-        <div style="width: 400px; height: 160px; border-radius: 8px; overflow: hidden; background: ${colors.bg}; border: ${borderStyle};"> ${svg} </div>`;
+        <div style="width: 380px; height: 160px; border-radius: 8px; overflow: hidden; background: ${colors.bg}; border: ${borderStyle};"> ${svg} </div>`;
 
         res.setHeader('Content-Type', 'image/svg+xml');
         res.setHeader('Cache-Control', 'public, max-age=0, s-maxage=86400, stale-while-revalidate=3600');
