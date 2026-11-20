@@ -50,11 +50,11 @@ export default async function handler(req, res) {
     const mediumPercent = Math.round((mediumSolved / mediumTotal) * 100);
     const hardPercent = Math.round((hardSolved / hardTotal) * 100);
 
-    const koefLength = 2 * 3.14159 * 26 / 40;
+    const koefLength = 2 * 3.14159 * 28 / 40;
     const r = 60;
     const ringLength = 2 * 3.14159 * r;
     const ringAngleOffset = 135;
-    const deltaOffset = 2 * 3.14159 * r * 2 / 40;
+    const deltaOffset = 2 * 3.14159 * r * 1 / 40;
 
     const easyTotalLength = koefLength * r * easyTotal / total;
     const easyLength = koefLength * r * easySolved / total;
@@ -69,10 +69,11 @@ export default async function handler(req, res) {
 
     // Colors based on leetcode
     const colors = theme === 'dark'
-        ? { bg: 'rgb(40, 40, 40)', text: 'rgb(255, 255, 255)', easy: 'rgb(28, 186, 186)', easyRing: 'rgb(38, 69, 69)',
-                                                                medium: 'rgb(255, 183, 0)', mediumRing: 'rgb(83, 69, 32)',
-                                                                hard: 'rgb(246, 55, 55)', hardRing: 'rgb(81, 43, 43)', ring: '#374151' }
-        : { bg: '#f8fafc', text: '#1e293b', easy: '#22c55e', easyRing: 'rgb(38, 69, 69)', medium: '#eab308', hard: '#dc2626', ring: '#e5e7eb' };
+        ? { bg: 'rgb(40, 40, 40)', text: 'rgb(255, 255, 255)', green: 'rgb(2, 151, 39)',
+                easy: 'rgb(28, 186, 186)', easyRing: 'rgb(38, 69, 69)',
+                medium: 'rgb(255, 183, 0)', mediumRing: 'rgb(83, 69, 32)',
+                hard: 'rgb(246, 55, 55)', hardRing: 'rgb(81, 43, 43)' }
+        : { bg: '#f8fafc', text: '#1e293b', easy: '#22c55e', easyRing: 'rgb(38, 69, 69)', medium: '#eab308', hard: '#dc2626' };
 
         const borderStyle = hide_border === 'true' ? 'none' : '1px solid #e2e8f0';
 
@@ -99,7 +100,8 @@ export default async function handler(req, res) {
 
                 <!-- Текст в центре -->
                 <text x="-20" y="0" fill="${colors.text}" font-size="28" font-weight="bold" text-anchor="middle">${solved}</text>
-                <text x="25" y="0" fill="${colors.text}" font-size="14" text-anchor="middle">/ ${total}</text>
+                <text x="30" y="0" fill="${colors.text}" font-size="14" text-anchor="middle">/ ${total}</text>
+                <text x="-10" y="20" fill="${colors.easy}" font-size="32" font-weight="bold" text-anchor="middle">✓</text>
                 <text x="0" y="20" fill="${colors.easy}" font-size="12" text-anchor="middle">Solved</text>
             </g>
 
