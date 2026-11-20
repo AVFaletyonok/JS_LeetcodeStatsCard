@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
   const { username = 'anonymous', theme = 'algolia', hide_border = 'false' } = req.query;
 
-  // GraphQL запрос к публичному API LeetCode
+  // GraphQL to API LeetCode
   const query = `
     query userStats($username: String!) {
       matchedUser(username: $username) {
@@ -70,16 +70,18 @@ export default async function handler(req, res) {
     // Colors based on leetcode
     const colors = theme === 'dark'
         ? { bg: 'rgb(40, 40, 40)', blockColor: 'rgb(53, 53, 53)',
-                text: 'rgb(255, 255, 255)', green: 'rgb(2, 151, 39)',
-                easy: 'rgb(28, 186, 186)', easyRing: 'rgb(38, 69, 69)',
-                medium: 'rgb(255, 183, 0)', mediumRing: 'rgb(83, 69, 32)',
-                hard: 'rgb(246, 55, 55)', hardRing: 'rgb(81, 43, 43)' }
-        : { bg: '#f8fafc', text: '#1e293b', easy: '#22c55e', easyRing: 'rgb(38, 69, 69)', medium: '#eab308', hard: '#dc2626' };
+                    text: 'rgb(255, 255, 255)', green: 'rgb(2, 151, 39)',
+                    easy: 'rgb(28, 186, 186)', easyRing: 'rgb(38, 69, 69)',
+                    medium: 'rgb(255, 183, 0)', mediumRing: 'rgb(83, 69, 32)',
+                    hard: 'rgb(246, 55, 55)', hardRing: 'rgb(81, 43, 43)' }
+        : { bg: 'rgb(255, 255, 255)', blockColor: 'rgb(250, 250, 250)',
+                     text: 'rgb(26, 26, 26)', green: 'rgb(2, 177, 40)',
+                     easy: 'rgb(28, 186, 186)', easyRing: 'rgb(210, 241, 241)',
+                     medium: 'rgb(255, 183, 0)', mediumRing: 'rgb(255, 241, 204)',
+                     hard: 'rgb(246, 55, 55)', hardRing: 'rgb(253, 215, 215)'};
 
-        const borderStyle = hide_border === 'true' ? 'none' : '1px solid #e2e8f0';
+        const borderStyle = hide_border === 'true' ? 'none' : '1px solid rgb(255, 255, 255)';
 
-        // style="background:${colors.bg};
-        // SVG with circle diagram
         const svg = `
         <svg xmlns="http://www.w3.org/2000/svg" width="380" height="160"
                 style="border:${borderStyle}; border-radius:8px;
@@ -87,7 +89,7 @@ export default async function handler(req, res) {
 
             <rect x="0" y="0" width="380" height="160" rx="8" ry="8" fill="${colors.bg}" stroke="..." stroke-width="..." />
 
-            <!-- Круговая диаграмма -->
+            <!-- Circle diagram -->
             <g transform="translate(135, 90)">
                 // easy stroke
                 <circle r="${r}" cx="0" cy="0" fill="none" stroke="${colors.easyRing}" stroke-width="6"
@@ -105,28 +107,27 @@ export default async function handler(req, res) {
                 <circle r="${r}" cx="0" cy="0" fill="none" stroke="${colors.hard}" stroke-width="6"
                     stroke-dasharray="${hardLength} ${ringLength - hardLength}" stroke-dashoffset="0" transform="rotate(${hardAngleOffset})" stroke-linecap="round"/>
 
-                <!-- Текст в центре -->
                 <text x="-20" y="0" fill="${colors.text}" font-size="28" font-weight="bold" text-anchor="middle">${solved}</text>
                 <text x="28" y="0" fill="${colors.text}" font-size="14" text-anchor="middle">/ ${total}</text>
                 <text x="-18" y="20" fill="${colors.green}" font-size="14" font-weight="bold" text-anchor="middle">✓</text>
                 <text x="10" y="20" fill="${colors.text}" font-size="13" text-anchor="middle">Solved</text>
             </g>
 
-            <!-- Блок Easy -->
+            <!-- Easy block -->
             <g transform="translate(270, 15)">
                 <rect x="0" y="-5" width="100" height="40" rx="8" ry="8" fill="${colors.blockColor}" stroke="..." stroke-width="..." />
                 <text x="50" y="10" fill="${colors.easy}" font-size="13" text-anchor="middle">Easy</text>
                 <text x="50" y="28" fill="${colors.text}" font-size="13" text-anchor="middle">${easySolved}/${easyTotal}</text>
             </g>
 
-            <!-- Блок Medium -->
+            <!-- Medium block -->
             <g transform="translate(270, 65)">
                 <rect x="0" y="-5" width="100" height="40" rx="8" ry="8" fill="${colors.blockColor}" stroke="..." stroke-width="..." />
                 <text x="50" y="10" fill="${colors.medium}" font-size="13" text-anchor="middle">Med.</text>
                 <text x="50" y="28" fill="${colors.text}" font-size="13" text-anchor="middle">${mediumSolved}/${mediumTotal}</text>
             </g>
 
-            <!-- Блок Hard -->
+            <!-- Hard block -->
             <g transform="translate(270, 115)">
                 <rect x="0" y="-5" width="100" height="40" rx="8" ry="8" fill="${colors.blockColor}" stroke="..." stroke-width="..." />
                 <text x="50" y="10" fill="${colors.hard}" font-size="13" text-anchor="middle">Hard</text>
