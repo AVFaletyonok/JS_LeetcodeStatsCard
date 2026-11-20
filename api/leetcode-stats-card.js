@@ -78,11 +78,15 @@ export default async function handler(req, res) {
 
         const borderStyle = hide_border === 'true' ? 'none' : '1px solid #e2e8f0';
 
+        // style="background:${colors.bg};
         // SVG with circle diagram
         const svg = `
         <svg xmlns="http://www.w3.org/2000/svg" width="380" height="160"
-                style="background:${colors.bg}; border:${borderStyle}; border-radius:8px;
+                border:${borderStyle}; border-radius:8px;
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+
+            <rect x="0" y="0" width="380" height="160" rx="8" ry="8" fill="${colors.bg}" stroke="..." stroke-width="..." />
+
             <!-- Круговая диаграмма -->
             <g transform="translate(135, 90)">
                 // easy stroke
