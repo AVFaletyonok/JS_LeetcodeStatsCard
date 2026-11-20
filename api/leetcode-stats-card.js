@@ -53,7 +53,7 @@ export default async function handler(req, res) {
     const koefLength = 2 * 3.14159 * 3 / 4;
     const r = 60;
     const ringLength = 2 * 3.14159 * r;
-    const ringAngleOffset = 135;
+    const ringAngleOffset = Math.round(135);
 
     const easyTotalLength = koefLength * r * easyTotal / total - 3;
     const easyLength = koefLength * r * easySolved / total - 3;
@@ -78,14 +78,14 @@ export default async function handler(req, res) {
             <g transform="translate(100, 80)">
                 // easy stroke
                 <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.easyRing}" stroke-width="6"
-                    stroke-dasharray="${easyTotalLength} ${ringLength - easyTotalLength}" stroke-dashoffset="0" transform="rotate(ringAngleOffset)" stroke-linecap="round"/>
+                    stroke-dasharray="${easyTotalLength} ${ringLength - easyTotalLength}" stroke-dashoffset="0" transform="rotate(135)" stroke-linecap="round"/>
                 <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.easy}" stroke-width="6"
-                    stroke-dasharray="${easyLength} ${ringLength - easyLength}" stroke-dashoffset="0" transform="rotate(ringAngleOffset)" stroke-linecap="round"/>
+                    stroke-dasharray="${easyLength} ${ringLength - easyLength}" stroke-dashoffset="0" transform="rotate(135)" stroke-linecap="round"/>
                 // medium stroke
-//                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.mediumRing}" stroke-width="6"
-//                    stroke-dasharray="${mediumTotalLength} ${ringLength - mediumTotalLength}" stroke-dashoffset="0" transform="rotate(180)" stroke-linecap="round"/>
-//                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.medium}" stroke-width="6"
-//                    stroke-dasharray="${mediumLength} ${ringLength - mediumLength}" stroke-dashoffset="0" transform="rotate(180)" stroke-linecap="round"/>
+                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.mediumRing}" stroke-width="6"
+                    stroke-dasharray="${mediumTotalLength} ${ringLength - mediumTotalLength}" stroke-dashoffset="0" transform="rotate(180)" stroke-linecap="round"/>
+                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.medium}" stroke-width="6"
+                    stroke-dasharray="${mediumLength} ${ringLength - mediumLength}" stroke-dashoffset="0" transform="rotate(180)" stroke-linecap="round"/>
 
                 <!-- Текст в центре -->
                 <text x="-20" y="0" fill="${colors.text}" font-size="28" font-weight="bold" text-anchor="middle">${solved}</text>
