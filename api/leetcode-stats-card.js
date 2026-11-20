@@ -50,6 +50,13 @@ export default async function handler(req, res) {
     const mediumPercent = Math.round((mediumSolved / mediumTotal) * 100);
     const hardPercent = Math.round((hardSolved / hardTotal) * 100);
 
+    const koefLength = 2 * 3.14159 * 3 / 4;
+    const r = 60;
+    const ringLength = 2 * 3.14159 * r;
+
+    const easyTotalLength = koefLength * r * easyTotal / total - 3;
+    const easeLength = koefLength * r * easySolved / total - 3;
+
     // Colors based on leetcode
     const colors = theme === 'dark'
         ? { bg: 'rgb(40, 40, 40)', text: 'rgb(255, 255, 255)', easy: 'rgb(28, 186, 186)', easyRing: 'rgb(38, 69, 69)',
@@ -64,11 +71,10 @@ export default async function handler(req, res) {
         <svg xmlns="http://www.w3.org/2000/svg" width="400" height="160" style="background:${colors.bg}; border:${borderStyle}; border-radius:8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
             <!-- Круговая диаграмма -->
             <g transform="translate(100, 80)">
-                <!-- Фон кольца -->
-                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.ring}" stroke-width="8" />
-                <!-- Дуга прогресса (общая) -->
-                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.text}" stroke-width="8" stroke-dasharray="${percent * 3.77} 251.33"
-                    stroke-dashoffset="0" transform="rotate(-90)" />
+                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.easyRing}" stroke-width="8"
+                    stroke-dasharray="${easyTotalLength} ${ringLength - easyTotalLength}" stroke-dashoffset="0" transform="rotate(-135)"/>
+                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.easy}" stroke-width="8"
+                    stroke-dasharray="${easeLength} ${ringLength - easeLength}" stroke-dashoffset="0" transform="rotate(-135)" />
 
                 <!-- Текст в центре -->
                 <text x="0" y="10" fill="${colors.text}" font-size="28" font-weight="bold" text-anchor="middle">${solved}</text>
