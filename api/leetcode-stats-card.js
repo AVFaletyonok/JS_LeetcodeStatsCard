@@ -54,7 +54,7 @@ export default async function handler(req, res) {
     const r = 60;
     const ringLength = 2 * 3.14159 * r;
     const ringAngleOffset = 135;
-    const deltaOffset = 2 * 3.14159 * 2 / 40;
+    const deltaOffset = 2 * 3.14159 * r * 2 / 40;
 
     const easyTotalLength = koefLength * r * easyTotal / total;
     const easyLength = koefLength * r * easySolved / total;
@@ -62,6 +62,10 @@ export default async function handler(req, res) {
     const mediumAngleOffset = Math.round(ringAngleOffset + (easyTotalLength + deltaOffset) * 360 / ringLength);
     const mediumTotalLength = koefLength * r * mediumTotal / total;
     const mediumLength = koefLength * r * mediumSolved / total;
+
+    const hardAngleOffset = Math.round(ringAngleOffset + (easyTotalLength + mediumTotalLength + 2 * deltaOffset) * 360 / ringLength);
+    const hardTotalLength = koefLength * r * hardTotal / total;
+    const hardLength = koefLength * r * hardSolved / total;
 
     // Colors based on leetcode
     const colors = theme === 'dark'
@@ -82,10 +86,16 @@ export default async function handler(req, res) {
                     stroke-dasharray="${easyTotalLength} ${ringLength - easyTotalLength}" stroke-dashoffset="0" transform="rotate(135)" stroke-linecap="round"/>
                 <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.easy}" stroke-width="6"
                     stroke-dasharray="${easyLength} ${ringLength - easyLength}" stroke-dashoffset="0" transform="rotate(135)" stroke-linecap="round"/>
-
                 // medium stroke
                 <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.mediumRing}" stroke-width="6"
                     stroke-dasharray="${mediumTotalLength} ${ringLength - mediumTotalLength}" stroke-dashoffset="0" transform="rotate(${mediumAngleOffset})" stroke-linecap="round"/>
+                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.medium}" stroke-width="6"
+                    stroke-dasharray="${mediumLength} ${ringLength - mediumLength}" stroke-dashoffset="0" transform="rotate(${mediumAngleOffset})" stroke-linecap="round"/>
+                // hard stroke
+                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.hardRing}" stroke-width="6"
+                    stroke-dasharray="${hardTotalLength} ${ringLength - hardTotalLength}" stroke-dashoffset="0" transform="rotate(${hardAngleOffset})" stroke-linecap="round"/>
+                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.hard}" stroke-width="6"
+                    stroke-dasharray="${hardLength} ${ringLength - hardLength}" stroke-dashoffset="0" transform="rotate(${hardAngleOffset})" stroke-linecap="round"/>
 
                 <!-- Текст в центре -->
                 <text x="-20" y="0" fill="${colors.text}" font-size="28" font-weight="bold" text-anchor="middle">${solved}</text>
