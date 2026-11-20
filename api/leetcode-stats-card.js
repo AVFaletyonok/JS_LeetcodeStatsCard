@@ -58,7 +58,7 @@ export default async function handler(req, res) {
     const easyTotalLength = koefLength * r * easyTotal / total - 3;
     const easyLength = koefLength * r * easySolved / total - 3;
 
-    const mediumAngleOffset = ringAngleOffset + Math.round((easyLength + 3) * 360 / ringLength);
+    const mediumAngleOffset = ringAngleOffset + Math.round((easyTotalLength + 3) * 360 / ringLength);
     const mediumTotalLength = koefLength * r * mediumTotal / total - 3;
     const mediumLength = koefLength * r * mediumSolved / total - 3;
 
