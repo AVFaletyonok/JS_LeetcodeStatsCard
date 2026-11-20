@@ -52,8 +52,10 @@ export default async function handler(req, res) {
 
     // Colors based on leetcode
     const colors = theme === 'dark'
-        ? { bg: '#1e293b', text: '#f1f5f9', easy: 'rgb(28, 186, 186)', medium: '#fbbf24', hard: '#ef4444', ring: '#374151' }
-        : { bg: '#f8fafc', text: '#1e293b', easy: '#22c55e', medium: '#eab308', hard: '#dc2626', ring: '#e5e7eb' };
+        ? { bg: 'rgb(40, 40, 40)', text: 'rgb(255, 255, 255)', easy: 'rgb(28, 186, 186)', easyRing: 'rgb(38, 69, 69)',
+                                                                medium: 'rgb(255, 183, 0)', mediumRing: 'rgb(83, 69, 32)',
+                                                                hard: 'rgb(246, 55, 55)', hardRing: 'rgb(81, 43, 43)', ring: '#374151' }
+        : { bg: '#f8fafc', text: '#1e293b', easy: '#22c55e', easyRing: 'rgb(38, 69, 69)', medium: '#eab308', hard: '#dc2626', ring: '#e5e7eb' };
 
         const borderStyle = hide_border === 'true' ? 'none' : '1px solid #e2e8f0';
 
