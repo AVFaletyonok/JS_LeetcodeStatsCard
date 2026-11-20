@@ -51,7 +51,7 @@ export default async function handler(req, res) {
     const hardPercent = Math.round((hardSolved / hardTotal) * 100);
 
     const koefLength = 2 * 3.14159 * 27.5 / 40;
-    const r = 60;
+    const r = 70;
     const ringLength = 2 * 3.14159 * r;
     const ringAngleOffset = 135;
     const deltaOffset = 2 * 3.14159 * r * 1.25 / 40;
@@ -84,21 +84,21 @@ export default async function handler(req, res) {
                 style="background:${colors.bg}; border:${borderStyle}; border-radius:8px; overflow: hidden;
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
             <!-- Круговая диаграмма -->
-            <g transform="translate(100, 80)">
+            <g transform="translate(115, 90)">
                 // easy stroke
-                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.easyRing}" stroke-width="6"
+                <circle r="${r}" cx="0" cy="0" fill="none" stroke="${colors.easyRing}" stroke-width="6"
                     stroke-dasharray="${easyTotalLength} ${ringLength - easyTotalLength}" stroke-dashoffset="0" transform="rotate(135)" stroke-linecap="round"/>
-                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.easy}" stroke-width="6"
+                <circle r="${r}" cx="0" cy="0" fill="none" stroke="${colors.easy}" stroke-width="6"
                     stroke-dasharray="${easyLength} ${ringLength - easyLength}" stroke-dashoffset="0" transform="rotate(135)" stroke-linecap="round"/>
                 // medium stroke
-                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.mediumRing}" stroke-width="6"
+                <circle r="${r}" cx="0" cy="0" fill="none" stroke="${colors.mediumRing}" stroke-width="6"
                     stroke-dasharray="${mediumTotalLength} ${ringLength - mediumTotalLength}" stroke-dashoffset="0" transform="rotate(${mediumAngleOffset})" stroke-linecap="round"/>
-                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.medium}" stroke-width="6"
+                <circle r="${r}" cx="0" cy="0" fill="none" stroke="${colors.medium}" stroke-width="6"
                     stroke-dasharray="${mediumLength} ${ringLength - mediumLength}" stroke-dashoffset="0" transform="rotate(${mediumAngleOffset})" stroke-linecap="round"/>
                 // hard stroke
-                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.hardRing}" stroke-width="6"
+                <circle r="${r}" cx="0" cy="0" fill="none" stroke="${colors.hardRing}" stroke-width="6"
                     stroke-dasharray="${hardTotalLength} ${ringLength - hardTotalLength}" stroke-dashoffset="0" transform="rotate(${hardAngleOffset})" stroke-linecap="round"/>
-                <circle r="60" cx="0" cy="0" fill="none" stroke="${colors.hard}" stroke-width="6"
+                <circle r="${r}" cx="0" cy="0" fill="none" stroke="${colors.hard}" stroke-width="6"
                     stroke-dasharray="${hardLength} ${ringLength - hardLength}" stroke-dashoffset="0" transform="rotate(${hardAngleOffset})" stroke-linecap="round"/>
 
                 <!-- Текст в центре -->
@@ -109,19 +109,21 @@ export default async function handler(req, res) {
             </g>
 
             <!-- Блок Easy -->
-            <g transform="translate(220, 20)">
+            <g transform="translate(250, 20)">
+                <rect x="-100" y="-5" width="100" height="40" rx="8" ry="8" fill="${colors.blockColor}" stroke="..." stroke-width="..." />
                 <text x="0" y="10" fill="${colors.easy}" font-size="14" text-anchor="middle">Easy</text>
                 <text x="0" y="30" fill="${colors.text}" font-size="14" text-anchor="middle">${easySolved}/${easyTotal}</text>
             </g>
 
             <!-- Блок Medium -->
-            <g transform="translate(220, 60)">
+            <g transform="translate(250, 65)">
+                <rect x="-50" y="-5" width="100" height="40" rx="8" ry="8" fill="${colors.blockColor}" stroke="..." stroke-width="..." />
                 <text x="0" y="10" fill="${colors.medium}" font-size="14" text-anchor="middle">Med.</text>
                 <text x="0" y="30" fill="${colors.text}" font-size="14" text-anchor="middle">${mediumSolved}/${mediumTotal}</text>
             </g>
 
             <!-- Блок Hard -->
-            <g transform="translate(220, 100)">
+            <g transform="translate(250, 110)">
                 <rect x="-25" y="-5" width="100" height="40" rx="8" ry="8" fill="${colors.blockColor}" stroke="..." stroke-width="..." />
                 <text x="0" y="10" fill="${colors.hard}" font-size="14" text-anchor="middle">Hard</text>
                 <text x="0" y="30" fill="${colors.text}" font-size="14" text-anchor="middle">${hardSolved}/${hardTotal}</text>
