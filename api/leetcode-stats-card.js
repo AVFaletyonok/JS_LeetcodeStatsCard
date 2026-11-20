@@ -104,8 +104,8 @@ export default async function handler(req, res) {
                 <!-- Текст в центре -->
                 <text x="-20" y="0" fill="${colors.text}" font-size="28" font-weight="bold" text-anchor="middle">${solved}</text>
                 <text x="28" y="0" fill="${colors.text}" font-size="14" text-anchor="middle">/ ${total}</text>
-                <text x="-15" y="20" fill="${colors.green}" font-size="14" font-weight="bold" text-anchor="middle">✓</text>
-                <text x="10" y="20" fill="${colors.easy}" font-size="12" text-anchor="middle">Solved</text>
+                <text x="-20" y="20" fill="${colors.green}" font-size="14" font-weight="bold" text-anchor="middle">✓</text>
+                <text x="5" y="20" fill="${colors.text}" font-size="12" text-anchor="middle">Solved</text>
             </g>
 
             <!-- Блок Easy -->
