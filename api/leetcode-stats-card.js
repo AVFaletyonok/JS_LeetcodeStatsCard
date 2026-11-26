@@ -69,25 +69,24 @@ export default async function handler(req, res) {
 
     // Colors based on leetcode
     const colors = theme === 'dark'
-        ? { bg: 'rgb(40, 40, 40)', blockColor: 'rgb(53, 53, 53)',
+        ? { bg: 'rgb(40, 40, 40)', blockColor: 'rgb(53, 53, 53)', border_color: 'rgb(255, 255, 255)',
                     text: 'rgb(255, 255, 255)', green: 'rgb(2, 151, 39)',
                     easy: 'rgb(28, 186, 186)', easyRing: 'rgb(38, 69, 69)',
                     medium: 'rgb(255, 183, 0)', mediumRing: 'rgb(83, 69, 32)',
                     hard: 'rgb(246, 55, 55)', hardRing: 'rgb(81, 43, 43)' }
-        : { bg: 'rgb(255, 255, 255)', blockColor: 'rgb(250, 250, 250)',
+        : { bg: 'rgb(255, 255, 255)', blockColor: 'rgb(250, 250, 250)', border_color: 'rgb(40, 40, 40)'
                      text: 'rgb(26, 26, 26)', green: 'rgb(2, 177, 40)',
                      easy: 'rgb(28, 186, 186)', easyRing: 'rgb(210, 241, 241)',
                      medium: 'rgb(255, 183, 0)', mediumRing: 'rgb(255, 241, 204)',
                      hard: 'rgb(246, 55, 55)', hardRing: 'rgb(253, 215, 215)'};
 
-        const borderStyle = borders === 'true' ? '1px solid rgb(255, 255, 255)' : 'none';
+        const border_color = borders === 'true' ? colors.border_color : colors.bg;
 
         const svg = `
         <svg xmlns="http://www.w3.org/2000/svg" width="380" height="160"
-                style="border:${borderStyle}; border-radius:8px;
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
 
-            <rect x="0" y="0" width="380" height="160" rx="8" ry="8" fill="${colors.bg}" stroke="..." stroke-width="..." />
+            <rect x="0" y="0" width="379" height="159" rx="8" ry="8" fill="${colors.bg}" stroke="${border_color}" stroke-width="1" />
 
             <!-- Circle diagram -->
             <g transform="translate(135, 90)">
