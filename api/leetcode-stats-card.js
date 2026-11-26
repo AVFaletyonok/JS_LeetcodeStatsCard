@@ -84,7 +84,7 @@ export default async function handler(req, res) {
 
         const svg = `
         <svg xmlns="http://www.w3.org/2000/svg" width="380" height="160"
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+                style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
 
             <rect x="0" y="0" width="379" height="159" rx="8" ry="8" fill="${colors.bg}" stroke="${border_color}" stroke-width="1" />
 
