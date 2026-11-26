@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  const { username = 'anonymous', theme = 'algolia', hide_border = 'false' } = req.query;
+  const { username = 'anonymous', theme = 'dark', borders = 'false' } = req.query;
 
   // GraphQL to API LeetCode
   const query = `
@@ -80,7 +80,7 @@ export default async function handler(req, res) {
                      medium: 'rgb(255, 183, 0)', mediumRing: 'rgb(255, 241, 204)',
                      hard: 'rgb(246, 55, 55)', hardRing: 'rgb(253, 215, 215)'};
 
-        const borderStyle = hide_border === 'true' ? 'none' : '1px solid rgb(255, 255, 255)';
+        const borderStyle = borders === 'true' ? '1px solid rgb(255, 255, 255)' : 'none';
 
         const svg = `
         <svg xmlns="http://www.w3.org/2000/svg" width="380" height="160"
