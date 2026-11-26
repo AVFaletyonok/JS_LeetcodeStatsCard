@@ -74,7 +74,7 @@ export default async function handler(req, res) {
                     easy: 'rgb(28, 186, 186)', easyRing: 'rgb(38, 69, 69)',
                     medium: 'rgb(255, 183, 0)', mediumRing: 'rgb(83, 69, 32)',
                     hard: 'rgb(246, 55, 55)', hardRing: 'rgb(81, 43, 43)' }
-        : { bg: 'rgb(255, 255, 255)', blockColor: 'rgb(250, 250, 250)', border_color: 'rgb(40, 40, 40)'
+        : { bg: 'rgb(255, 255, 255)', blockColor: 'rgb(250, 250, 250)', border_color: 'rgb(40, 40, 40)',
                      text: 'rgb(26, 26, 26)', green: 'rgb(2, 177, 40)',
                      easy: 'rgb(28, 186, 186)', easyRing: 'rgb(210, 241, 241)',
                      medium: 'rgb(255, 183, 0)', mediumRing: 'rgb(255, 241, 204)',
